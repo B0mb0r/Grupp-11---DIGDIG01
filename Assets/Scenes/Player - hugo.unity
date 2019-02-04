@@ -362,7 +362,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &709334702
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -372,7 +372,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 709334700}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9391d519d0429f14e9ac67604c87a7f4, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -445,7 +445,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709334700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.416397, y: -0.8167987, z: 0}
+  m_LocalPosition: {x: -4.426, y: -1.806, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1040477159}
@@ -535,6 +535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1040477159}
   - component: {fileID: 1040477158}
+  - component: {fileID: 1040477160}
   - component: {fileID: 1040477157}
   m_Layer: 0
   m_Name: Main Camera
@@ -607,6 +608,20 @@ Transform:
   m_Father: {fileID: 709334704}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1040477160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040477156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c751713b280a242a9753d02fd1a747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundBox: {fileID: 1559605762}
+  player: {fileID: 709334700}
 --- !u!1 &1049272827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1017,7 @@ GameObject:
   - component: {fileID: 1559605763}
   - component: {fileID: 1559605762}
   m_Layer: 0
-  m_Name: EdgeOfMap
+  m_Name: bounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1018,7 +1033,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
