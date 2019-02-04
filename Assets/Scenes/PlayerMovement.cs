@@ -24,21 +24,18 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rbody;
 
-    // Use this for initialization
     void Start()
     {
-        //Våran variabel kopplas till rätt rigidbody
         rbody = GetComponent<Rigidbody2D>();
         dashtime = startdashtime;
     }
 
-    // Update is called once per frame
+    //Walk
     void Update()
     {
-        //När en av horizontala rörelse knapparna trycks in så går Player i den riktningen med Playerns moveSpeed
         rbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rbody.velocity.y);
        
-        //Om hopp knappen trycks in så händer något
+        //Jump
         if (Input.GetButtonDown("Jump") && groundCheck.isGrounded == true)
         {
                 isJumping = true;
@@ -67,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         {
             lookDirection = -1;
         }
-            if (Input.GetAxis("Horizontal") < 0)
+        if (Input.GetAxis("Horizontal") < 0)
         {
             lookDirection = 1;
         }
