@@ -33,4 +33,5 @@ public class cameraController : MonoBehaviour
         float clampedY = Mathf.Clamp(transform.position.y, minBounds.y + halfHeight, maxBounds.y - halfHeight);
         transform.position = new Vector3(clampedX, clampedY, transform.position.z);
     }
+    //nani
 }
