@@ -63,10 +63,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxis("Horizontal") > 0)
         {
             lookDirection = -1;
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
         }
         if (Input.GetAxis("Horizontal") < 0)
         {
             lookDirection = 1;
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
         }
         if (Input.GetButton("Fire3") && dashtime > 0 && dashCooldownRemaining <= 0 && dashCounter > 0)
         {
