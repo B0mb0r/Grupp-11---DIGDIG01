@@ -4,35 +4,55 @@ using UnityEngine;
 
 public class EnemyHealthSystem : MonoBehaviour
 {
+    public GameObject objectDestroy;
     // the amount of health the enamy starts with.
     public int startingHealth = 1;
     // the current health the enemy have.
     public int currentHealth;
     // if the enemy is dead.
-    bool isDead; 
+    public bool isDead; 
     
     // Start is called before the first frame update
     void Awake()
     {
+        isDead = false;
         // Setting the current health when enemy spawn
         currentHealth = startingHealth;
     }
 
+    void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            isDead = true;
+            TrueDeath();
+        }
+    }
+
     public void TakeDamage(int amount, Vector3 hitPoint)
     {
-        // if enemy is dead.
-        if (isDead)
-            // exit the damage function.
-            return;
+
         currentHealth -= amount;
         if(currentHealth <= 0)
         {
-            Death();
+            isDead = true;
+            TrueDeath();
         }
     }
-    void Death()
+
+    public void TakeDamage(int damage)
     {
-        isDead = true;
+        currentHealth -= damage;
+        Debug.Log("damage TAKEN");
+    }
+
+    void TrueDeath()
+    {
+        
+        if (isDead == true)
+        {
+            Destroy(objectDestroy);
+        }
     }
 
 }
