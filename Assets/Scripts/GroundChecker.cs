@@ -6,7 +6,7 @@ public class GroundChecker : MonoBehaviour
 {
     public bool isGrounded;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         //Våran variabel som kollar om vi är på marken sätts som sann
         isGrounded = true;

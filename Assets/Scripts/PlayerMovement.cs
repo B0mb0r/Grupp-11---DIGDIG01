@@ -30,9 +30,9 @@ public class PlayerMovement : MonoBehaviour
         dashtime = startdashtime;
     }
 
-    //Walk
     void Update()
     {
+        //walk
         rbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rbody.velocity.y);
        
         //Jump
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Dash
-        if(Input.GetAxis("Horizontal") > 0)
+        if (Input.GetAxis("Horizontal") > 0)
         {
             lookDirection = -1;
         }
@@ -92,6 +92,8 @@ public class PlayerMovement : MonoBehaviour
                     dashCounter = dashCounter - 1;
                 }
             }
+            isJumping = false;
+            rbody.velocity = new Vector2(rbody.velocity.x, 0);
         }
         dashCooldownRemaining = dashCooldownRemaining - (1 * Time.deltaTime);
     }
