@@ -411,7 +411,7 @@ MonoBehaviour:
   moveSpeed: 6
   jumpSpeed: 4.5
   jumpTimeCounter: 0
-  jumpTime: 0.35
+  jumpTime: 0.6
   dashSpeed: 25
   dashCooldown: 1
   dashCooldownRemaining: 0
