@@ -9,10 +9,10 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 12f;
     private bool isJumping;
     public float jumpTimeCounter;
-    public float jumpTime = 0.35f;
+    public float jumpTime = 0.6f;
 
-    public float dashSpeed;
-    public float dashCooldown = 3;
+    public float dashSpeed = 25f;
+    public float dashCooldown = 1f;
     public float dashCooldownRemaining;
     public float dashtime = 0.1f;
     public float startdashtime = 0.1f;
