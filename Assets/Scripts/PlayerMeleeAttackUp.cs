@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMeleeAttack : MonoBehaviour
+public class PlayerMeleeAttackUp : MonoBehaviour
 {
     public int damage;
     public float startTimeBtwAttack;
@@ -18,7 +18,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.W))
         {
             if (timeBtwAttack <= 0)
             {
@@ -28,7 +28,7 @@ public class PlayerMeleeAttack : MonoBehaviour
                 {
                     enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
                 }
-                Debug.Log("Attacked");
+                Debug.Log("AttackedUp");
             }
         }
         else
@@ -39,7 +39,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(attackPosition.position, new Vector3(rangeX, rangeY, 1));
     }
 }
