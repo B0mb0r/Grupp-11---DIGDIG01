@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class SetInvisible : MonoBehaviour
 {
-
-    // Use this for initialization
+    // Start is called before the first frame update
     void Start()
-    {//gör att ett objekt inte syns i spelet. brukar användas till t.ex skyboxes
+    {
         GetComponent<SpriteRenderer>().enabled = false;
     }
-
 
 }
