@@ -40,4 +40,8 @@ public class Health : MonoBehaviour
             }
         }
     }
+    public void LifeSteal(int lifeSteal)
+    {
+        health = health + 1;
+    }
 }
