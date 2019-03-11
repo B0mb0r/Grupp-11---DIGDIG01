@@ -4,8 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - InvisibleWall
-  - PlayerHurtBox
+  - health
   layers:
   - Default
   - TransparentFX
@@ -15,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - Enemy
+  - 
   - 
   - 
   - 

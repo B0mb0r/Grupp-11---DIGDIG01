@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashCounter = 1;
 
     private int lookDirection;
+    public static bool lookingRight;
 
     public GroundChecker groundCheck;
 
@@ -35,8 +36,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //När en av horizontala rörelse knapparna trycks in så går Player i den riktningen med Playerns moveSpeed
-        rbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rbody.velocity.y);
+  
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            transform.localScale = new Vector2(-1, 1);
+        }
+        else if (Input.GetAxis("Horizontal") > 0)
+        {
+            transform.localScale = new Vector2(1, 1);
+        }
+            //När en av horizontala rörelse knapparna trycks in så går Player i den riktningen med Playerns moveSpeed
+            rbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rbody.velocity.y);
        
         //Om hopp knappen trycks in så händer något
         if (Input.GetButtonDown("Jump") && groundCheck.isGrounded == true)
@@ -66,10 +76,12 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetAxis("Horizontal") > 0)
         {
             lookDirection = -1;
+     
         }
             if (Input.GetAxis("Horizontal") < 0)
         {
             lookDirection = 1;
+
         }
         if (Input.GetButton("Fire3") && dashtime > 0 && dashCooldownRemaining <= 0 && dashCounter > 0)
         {
@@ -83,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
                     dashCooldownRemaining = dashCooldown;
                     dashCounter = dashCounter - 1;
                 }
+                
             }
             else
             {
@@ -94,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
                     dashCooldownRemaining = dashCooldown;
                     dashCounter = dashCounter - 1;
                 }
+              
             }
         }
         dashCooldownRemaining = dashCooldownRemaining - (1 * Time.deltaTime);

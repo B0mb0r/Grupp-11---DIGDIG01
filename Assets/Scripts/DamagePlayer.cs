@@ -9,7 +9,7 @@ public class DamagePlayer : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            testPlayerHealth.health = testPlayerHealth.health - 1;
+            TestPlayerHealth.health -= 1;
         }
     }
     // Start is called before the first frame update
