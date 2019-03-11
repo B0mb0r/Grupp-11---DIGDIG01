@@ -73,15 +73,23 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Dash
-        if(Input.GetAxis("Horizontal") > 0)
+        if (Input.GetAxis("Horizontal") > 0)
         {
             lookDirection = -1;
+<<<<<<< HEAD
      
+=======
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+>>>>>>> 36ab5491a487af3b5c7a16ab698bf8d20882806b
         }
-            if (Input.GetAxis("Horizontal") < 0)
+        if (Input.GetAxis("Horizontal") < 0)
         {
             lookDirection = 1;
+<<<<<<< HEAD
 
+=======
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+>>>>>>> 36ab5491a487af3b5c7a16ab698bf8d20882806b
         }
         if (Input.GetButton("Fire3") && dashtime > 0 && dashCooldownRemaining <= 0 && dashCounter > 0)
         {
@@ -109,6 +117,8 @@ public class PlayerMovement : MonoBehaviour
                 }
               
             }
+            isJumping = false;
+            rbody.velocity = new Vector2(rbody.velocity.x, 0);
         }
         dashCooldownRemaining = dashCooldownRemaining - (1 * Time.deltaTime);
     }
