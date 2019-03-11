@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 6f;
+    public Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     public float jumpSpeed = 12f;
     private bool isJumping;
@@ -28,12 +30,16 @@ public class PlayerMovement : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody2D>();
         dashtime = startdashtime;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     //Walk
     void Update()
     {
         rbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rbody.velocity.y);
+
+        animator.SetFloat("Speed", Mathf.Abs(rbody.velocity.x) / moveSpeed);
+
         //Jump
         if (Input.GetButtonDown("Jump") && groundCheck.isGrounded == true)
         {
@@ -58,14 +64,24 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
         }
         //Dash
-        if (Input.GetAxis("Horizontal") > 0)
+
+        bool flipSprite = (spriteRenderer.flipX ? (rbody.velocity.x > 0.01f) : (rbody.velocity.x < 0.0f));
+        if (flipSprite)
         {
-            lookDirection = -1;
+            spriteRenderer.flipX = !spriteRenderer.flipX;
         }
-        if (Input.GetAxis("Horizontal") < 0)
+
+        if (Input.GetKeyDown(KeyCode.A))
         {
             lookDirection = 1;
         }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            lookDirection = 2;
+        }
+        
+
         if (Input.GetButton("Fire3") && dashtime > 0 && dashCooldownRemaining <= 0 && dashCounter > 0)
         {
             if (lookDirection == 1)
