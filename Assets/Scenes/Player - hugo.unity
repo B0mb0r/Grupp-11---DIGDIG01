@@ -189,7 +189,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &273091502
 GameObject:
@@ -273,7 +273,6 @@ GameObject:
   - component: {fileID: 709334704}
   - component: {fileID: 709334703}
   - component: {fileID: 709334702}
-  - component: {fileID: 709334708}
   - component: {fileID: 709334701}
   - component: {fileID: 709334705}
   - component: {fileID: 709334707}
@@ -394,7 +393,7 @@ Transform:
   - {fileID: 1833122051}
   - {fileID: 273091503}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &709334705
 MonoBehaviour:
@@ -405,12 +404,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 709334700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76219ae6950d6814db91e9ebfc957be6, type: 3}
+  m_Script: {fileID: 11500000, guid: 43adc0681b86ee34291d3d6e18ef1e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
   jumpSpeed: 4.5
-  isJumping: 0
   jumpTimeCounter: 0
   jumpTime: 0.6
   dashSpeed: 25
@@ -419,9 +417,7 @@ MonoBehaviour:
   dashtime: 0.1
   startdashtime: 0.1
   dashCounter: 1
-  lookDirection: 0
   groundCheck: {fileID: 709334706}
-  rbody: {fileID: 0}
 --- !u!114 &709334706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,19 +457,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8273988, y: 0.11284828}
   m_EdgeRadius: 0
---- !u!114 &709334708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709334700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72023dc8417d4a042a1659fd5b41157d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGrounded: 0
 --- !u!1 &1040477156
 GameObject:
   m_ObjectHideFlags: 0
