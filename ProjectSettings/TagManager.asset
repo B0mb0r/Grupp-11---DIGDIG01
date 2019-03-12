@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InvisibleWall
   - PlayerHurtBox
+  - bounds
   layers:
   - Default
   - TransparentFX
@@ -16,6 +17,7 @@ TagManager:
   - 
   - 
   - Enemy
+  - GroundCheck
   - 
   - 
   - 
@@ -37,8 +39,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - bounds
   m_SortingLayers:
   - name: Default
     uniqueID: 0
