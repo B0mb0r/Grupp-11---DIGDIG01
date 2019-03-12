@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMeleeAttackHorizontal : MonoBehaviour
 {
     public int damage;
+    public int lifeSteal = 1;
     public float startTimeBtwAttack;
     private float timeBtwAttack;
 
@@ -36,7 +37,8 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
-                }
+                        GetComponent<Health>().LifeSteal(lifeSteal);
+                    }
                 Debug.Log("Attacked");
             }
         }

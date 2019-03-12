@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMeleeAttackUp : MonoBehaviour
 {
     public int damage;
+    public int lifeSteal = 1;
     public float startTimeBtwAttack;
     private float timeBtwAttack;
 
@@ -27,6 +28,7 @@ public class PlayerMeleeAttackUp : MonoBehaviour
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
+                    GetComponent<Health>().LifeSteal(lifeSteal);
                 }
                 Debug.Log("AttackedUp");
             }

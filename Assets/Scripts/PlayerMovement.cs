@@ -9,10 +9,10 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 12f;
     private bool isJumping;
     public float jumpTimeCounter;
-    public float jumpTime = 0.35f;
+    public float jumpTime = 0.6f;
 
-    public float dashSpeed;
-    public float dashCooldown = 3;
+    public float dashSpeed = 25f;
+    public float dashCooldown = 1f;
     public float dashCooldownRemaining;
     public float dashtime = 0.1f;
     public float startdashtime = 0.1f;
@@ -24,21 +24,18 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rbody;
 
-    // Use this for initialization
     void Start()
     {
-        //Våran variabel kopplas till rätt rigidbody
         rbody = GetComponent<Rigidbody2D>();
         dashtime = startdashtime;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //När en av horizontala rörelse knapparna trycks in så går Player i den riktningen med Playerns moveSpeed
+        //walk
         rbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rbody.velocity.y);
        
-        //Om hopp knappen trycks in så händer något
+        //Jump
         if (Input.GetButtonDown("Jump") && groundCheck.isGrounded == true)
         {
                 isJumping = true;
@@ -63,12 +60,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Dash
-        if(Input.GetAxis("Horizontal") > 0)
+        if (Input.GetAxis("Horizontal") > 0)
         {
             lookDirection = -1;
             transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
         }
-            if (Input.GetAxis("Horizontal") < 0)
+        if (Input.GetAxis("Horizontal") < 0)
         {
             lookDirection = 1;
             transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
@@ -97,6 +94,8 @@ public class PlayerMovement : MonoBehaviour
                     dashCounter = dashCounter - 1;
                 }
             }
+            isJumping = false;
+            rbody.velocity = new Vector2(rbody.velocity.x, 0);
         }
         dashCooldownRemaining = dashCooldownRemaining - (1 * Time.deltaTime);
     }
