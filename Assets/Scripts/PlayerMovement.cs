@@ -32,10 +32,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        //walk
+        //walk = a och d
         rbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rbody.velocity.y);
        
-        //Jump
+        //Jump = space
         if (Input.GetButtonDown("Jump") && groundCheck.isGrounded == true)
         {
                 isJumping = true;
@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
         }
 
-        //Dash
+        //Dash = leftShift
         if (Input.GetAxis("Horizontal") > 0)
         {
             lookDirection = -1;

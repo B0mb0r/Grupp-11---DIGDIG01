@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  jumpSpeed: 4.5
+  jumpSpeed: 5
   jumpTimeCounter: 0
   jumpTime: 0.6
   dashSpeed: 25
