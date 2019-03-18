@@ -4,14 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
   - health
-=======
-  - InvisibleWall
-  - ShowOnPause
-  - PlayerHurtBox
   - Ground
->>>>>>> 36ab5491a487af3b5c7a16ab698bf8d20882806b
   layers:
   - Default
   - TransparentFX
@@ -21,15 +15,9 @@ TagManager:
   - UI
   - 
   - 
-<<<<<<< HEAD
   - 
   - 
   - 
-=======
-  - Enemy
-  - GroundCheck
-  - Ground
->>>>>>> 36ab5491a487af3b5c7a16ab698bf8d20882806b
   - 
   - 
   - 

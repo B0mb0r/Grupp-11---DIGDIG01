@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 6f;
 
     public float jumpSpeed = 12f;
-    private bool isJumping;
+    public static bool isJumping;
     public float jumpTimeCounter;
     public float jumpTime = 0.35f;
 
@@ -76,20 +76,16 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxis("Horizontal") > 0)
         {
             lookDirection = -1;
-<<<<<<< HEAD
-     
-=======
+
             transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
->>>>>>> 36ab5491a487af3b5c7a16ab698bf8d20882806b
+
         }
         if (Input.GetAxis("Horizontal") < 0)
         {
             lookDirection = 1;
-<<<<<<< HEAD
 
-=======
             transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
->>>>>>> 36ab5491a487af3b5c7a16ab698bf8d20882806b
+
         }
         if (Input.GetButton("Fire3") && dashtime > 0 && dashCooldownRemaining <= 0 && dashCounter > 0)
         {

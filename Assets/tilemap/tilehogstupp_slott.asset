@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: tilemitten_slott (1)
+  m_Name: tilehogstupp_slott
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 7cb2f141b81bf8441bd0664ee493663e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef3d4660c13bd3549abc2827cea95480, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

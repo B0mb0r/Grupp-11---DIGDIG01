@@ -37,7 +37,7 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
-                        GetComponent<Health>().LifeSteal(lifeSteal);
+                    GetComponent<Health>().LifeSteal(lifeSteal);
                     }
                 Debug.Log("Attacked");
             }
