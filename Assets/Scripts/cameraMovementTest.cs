@@ -18,7 +18,9 @@ public class cameraMovementTest : MonoBehaviour
     public Vector3 offset;
     public float holdDownTime = 0;
     public bool otherActions;
-
+    public Vector3 aheadTarget;
+    public float xPos;
+    public float yPos;
 
 
 
@@ -38,7 +40,9 @@ public class cameraMovementTest : MonoBehaviour
     {
 
 
-        Vector3 desiredPosition = target.position + offset;
+        offset = new Vector3(xPos, yPos, -10);
+
+        Vector3 desiredPosition = target.position + offset; 
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothedPosition;
         //transform.LookAt(target);
@@ -82,15 +86,26 @@ public class cameraMovementTest : MonoBehaviour
         }
         if (holdDownTime > 0.5 && Input.GetKey(KeyCode.S))
         {
-            offset = new Vector3(0, -4, -10);
+            yPos = -4;
         }
         else if (holdDownTime > 0.5 && Input.GetKey(KeyCode.W))
         {
-            offset = new Vector3(0, 4, -10);
+            yPos = 4;
         }
         else
         {
-            offset = new Vector3(0, 0, -10);
+            yPos = 0;
+        }
+    }
+    private void LateUpdate()
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
+            xPos = 0.75f;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            xPos = -0.75f;
         }
     }
 
