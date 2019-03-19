@@ -22,6 +22,7 @@ public class GroundChecker : MonoBehaviour
         {
             //Variabeln byts till falsk
             isGrounded = false;
+          
         }
     }
 }

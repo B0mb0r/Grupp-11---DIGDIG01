@@ -17,7 +17,15 @@ public class cameraMovementTest : MonoBehaviour
     public float smoothSpeed = 0.13f;
     public Vector3 offset;
 
+    public Vector3 shakeSet;
+    public float shakeTimer;
+    public float cameraX;
+    public float cameraY;
+    public float shakeMax;
+    public float shakeMin;
 
+    public static float shake;
+    public float shakeReduce;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +40,7 @@ public class cameraMovementTest : MonoBehaviour
 
     private void FixedUpdate()
     {
-     
+
 
         Vector3 desiredPosition = target.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
@@ -42,7 +50,7 @@ public class cameraMovementTest : MonoBehaviour
 
         if (transform.position.x <= minBounds.x + halfWidth)
         {
-            transform.position = new Vector3(minBounds.x + halfWidth, transform.position.y, -10 );
+            transform.position = new Vector3(minBounds.x + halfWidth, transform.position.y, -10);
         }
         if (transform.position.x >= maxBounds.x - halfWidth)
         {
@@ -56,10 +64,23 @@ public class cameraMovementTest : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, maxBounds.y - halfHeight, -10);
         }
+
+        // adda +1 till shake för kort screenshake
+        if (Input.GetKey(KeyCode.P))
+        {
+            shake++;
+        }
+        if (shake > 0)
+        {
+            cameraX = transform.position.x;
+            cameraY = transform.position.y;
+
+
+                shakeSet = new Vector3(cameraX + Random.Range(shakeMax, shakeMin), cameraY + Random.Range(shakeMax, shakeMin), -10);
+                transform.position = shakeSet;
+            
+            shake-=shakeReduce;
+        }
     }
-
-
-
-
 }
 
