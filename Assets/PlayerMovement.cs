@@ -2,16 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 6f;
     public Animator animator;
     private SpriteRenderer spriteRenderer;
+    public CharacterController controller2D;
+
+
+
+
+
 
     public float jumpSpeed = 12f;
     private bool isJumping;
     public float jumpTimeCounter;
     public float jumpTime = 0.35f;
+    private bool isFalling;
 
     public float dashSpeed;
     public float dashCooldown = 3;
@@ -25,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     public GroundChecker groundCheck;
 
     private Rigidbody2D rbody;
+
+
 
     void Start()
     {
@@ -40,12 +50,14 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(rbody.velocity.x) / moveSpeed);
 
+
         //Jump
         if (Input.GetButtonDown("Jump") && groundCheck.isGrounded == true)
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;
             rbody.velocity = new Vector2(rbody.velocity.x, jumpSpeed);
+            animator.SetBool("isJumping", true);
         }
         if (Input.GetButton("Jump") && isJumping == true)
         {
@@ -57,15 +69,31 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 isJumping = false;
+
             }
         }
         if (Input.GetButtonUp("Jump"))
         {
             isJumping = false;
-        }
-        //Dash
 
-        bool flipSprite = (spriteRenderer.flipX ? (rbody.velocity.x > 0.01f) : (rbody.velocity.x < 0.0f));
+
+        }
+
+        if (isJumping == false && groundCheck.isGrounded == false)
+        {
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", true);
+        }
+    
+
+        if (isJumping == false && groundCheck.isGrounded == true)
+        {
+            animator.SetBool("isFalling", false);
+        }
+
+//Dash
+
+bool flipSprite = (spriteRenderer.flipX ? (rbody.velocity.x > 0.01f) : (rbody.velocity.x < 0.0f));
         if (flipSprite)
         {
             spriteRenderer.flipX = !spriteRenderer.flipX;
@@ -80,14 +108,14 @@ public class PlayerMovement : MonoBehaviour
         {
             lookDirection = 2;
         }
-        
+
 
         if (Input.GetButton("Fire3") && dashtime > 0 && dashCooldownRemaining <= 0 && dashCounter > 0)
         {
             if (lookDirection == 1)
             {
                 rbody.velocity = new Vector2(-dashSpeed, rbody.velocity.y);
-                dashtime -= Time.deltaTime;
+dashtime -= Time.deltaTime;
                 if (dashtime <= 0)
                 {
                     dashtime = startdashtime;
@@ -98,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 rbody.velocity = new Vector2(dashSpeed, rbody.velocity.y);
-                dashtime -= Time.deltaTime;
+dashtime -= Time.deltaTime;
                 if (dashtime <= 0)
                 {
                     dashtime = startdashtime;
@@ -110,7 +138,8 @@ public class PlayerMovement : MonoBehaviour
         dashCooldownRemaining = dashCooldownRemaining - (1 * Time.deltaTime);
     }
     private void OnTriggerStay2D(Collider2D collision)
-    {
-        dashCounter = 1 * Time.deltaTime;
-    }
+{
+    dashCounter = 1 * Time.deltaTime;
+}
+    
 }
