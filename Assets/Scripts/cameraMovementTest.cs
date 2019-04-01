@@ -17,6 +17,7 @@ public class cameraMovementTest : MonoBehaviour
     public float smoothSpeed = 0.13f;
     public Vector3 offset;
 
+
     public Vector3 shakeSet;
     public float shakeTimer;
     public float cameraX;
@@ -27,6 +28,14 @@ public class cameraMovementTest : MonoBehaviour
     public static float shake;
     public float shakeReduce;
 
+    public float holdDownTime = 0;
+    public bool otherActions;
+    public Vector3 aheadTarget;
+    public float xPos;
+    public float yPos;
+
+    public static float landingCounter;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +51,10 @@ public class cameraMovementTest : MonoBehaviour
     {
 
 
-        Vector3 desiredPosition = target.position + offset;
+        offset = new Vector3(xPos, yPos, -10);
+
+        Vector3 desiredPosition = target.position + offset; 
+
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothedPosition;
         //transform.LookAt(target);
@@ -56,11 +68,12 @@ public class cameraMovementTest : MonoBehaviour
         {
             transform.position = new Vector3(maxBounds.x - halfWidth, transform.position.y, -10);
         }
+
         if (transform.position.y <= minBounds.y + halfHeight)
         {
             transform.position = new Vector3(transform.position.x, minBounds.y + halfHeight, -10);
         }
-        if (transform.position.y <= maxBounds.y - halfHeight)
+        if (transform.position.y >= maxBounds.y - halfHeight)
         {
             transform.position = new Vector3(transform.position.x, maxBounds.y - halfHeight, -10);
         }
@@ -81,6 +94,67 @@ public class cameraMovementTest : MonoBehaviour
             
             shake-=shakeReduce;
         }
-    }
-}
 
+        if (PlayerMovement.isJumping== false)
+        {
+            landingCounter += Time.deltaTime;
+        }
+       else
+        {
+            landingCounter = 0;
+        }
+
+    }
+
+
+
+    
+    private void Update()
+    {
+        if (transform.position.y >= maxBounds.y - halfHeight)
+        {
+            transform.position = new Vector3(transform.position.x, maxBounds.y - halfHeight, -10);
+        }
+        // om holdDownTime är mer än 0.5 så åcker camerans y position -4 och annars åcker camerans posiotion till 0
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            otherActions = true;
+        }
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        {
+            otherActions = false;
+        }
+        if (Input.GetKey(KeyCode.S) && (otherActions == false) || (Input.GetKey(KeyCode.W) && (otherActions == false)))
+        {
+            holdDownTime += Time.deltaTime;
+        }
+        else
+        {
+            holdDownTime = 0;
+        }
+        if (holdDownTime > 0.5 && Input.GetKey(KeyCode.S))
+        {
+            yPos = -4;
+        }
+        else if (holdDownTime > 0.5 && Input.GetKey(KeyCode.W))
+        {
+            yPos = 4;
+        }
+        else
+        {
+            yPos = 0;
+        }
+    }
+    private void LateUpdate()
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
+            xPos = 0.75f;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            xPos = -0.75f;
+        }
+    }
+
+}

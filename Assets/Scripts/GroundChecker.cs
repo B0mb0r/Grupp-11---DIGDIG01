@@ -12,6 +12,10 @@ public class GroundChecker : MonoBehaviour
         {
             //Våran variabel som kollar om vi är på marken sätts som sann
             isGrounded = true;
+            if (cameraMovementTest.landingCounter >= .55F)
+            {
+                cameraMovementTest.shake++;
+            }
         }
 
     }
@@ -22,7 +26,7 @@ public class GroundChecker : MonoBehaviour
         {
             //Variabeln byts till falsk
             isGrounded = false;
-          
+            cameraMovementTest.landingCounter = 0.12f;
         }
     }
 }
