@@ -13,13 +13,13 @@ public class PlayerMeleeAttackUp : MonoBehaviour
     public float rangeX;
     public float rangeY;
     public LayerMask whatIsEnemies;
-
+    public PlayerMovement PlayerMovement;
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.W) && PlayerMovement.knockbackCount <= 0)
         {
             if (timeBtwAttack <= 0)
             {

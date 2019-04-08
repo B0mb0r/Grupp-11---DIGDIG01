@@ -14,12 +14,13 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
     public float rangeY;
     public LayerMask whatIsEnemies;
     public bool WOrSIsPressed;
+    public PlayerMovement PlayerMovement;
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || PlayerMovement.knockbackCount > 0)
         {
             WOrSIsPressed = true;
         }

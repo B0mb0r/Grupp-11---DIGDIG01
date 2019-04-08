@@ -22,25 +22,55 @@ public class PlayerMovement : MonoBehaviour
 
     public GroundChecker groundCheck;
 
+
+    public float knockbackx;
+    private float knockbacky;
+    public float knockbackLength;
+    public float knockbackCount;
+    public bool knockFromRight;
+    public float defaultKnockback;
+    public float stunExtension;
+    
+    
+
+
     private Rigidbody2D rbody;
 
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
         dashtime = startdashtime;
+        knockbacky = defaultKnockback;
     }
 
     void Update()
     {
-        //walk
-        rbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rbody.velocity.y);
-       
+        //walk and knockback
+        if (knockbackCount <= 0)
+        {
+            rbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rbody.velocity.y);
+
+            knockbacky = defaultKnockback;
+        }
+        else
+        {
+            if (knockFromRight)
+                rbody.velocity = new Vector2(-knockbackx, knockbacky);
+            if (!knockFromRight)
+                rbody.velocity = new Vector2(knockbackx, knockbacky);
+            knockbackCount -=  Time.deltaTime;
+            knockbacky -= 10 * Time.deltaTime;
+            
+            
+            
+        }
+
         //Jump
         if (Input.GetButtonDown("Jump") && groundCheck.isGrounded == true)
         {
-                isJumping = true;
-                jumpTimeCounter = jumpTime;
-                rbody.velocity = new Vector2(rbody.velocity.x, jumpSpeed);
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            rbody.velocity = new Vector2(rbody.velocity.x, jumpSpeed);
         }
         if (Input.GetButton("Jump") && isJumping == true)
         {
@@ -70,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
             lookDirection = 1;
             transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
         }
-        if (Input.GetButton("Fire3") && dashtime > 0 && dashCooldownRemaining <= 0 && dashCounter > 0)
+        if (Input.GetButton("Fire3") && dashtime > 0 && dashCooldownRemaining <= 0 && dashCounter > 0 && knockbackCount <= 0)
         {
             if (lookDirection == 1)
             {

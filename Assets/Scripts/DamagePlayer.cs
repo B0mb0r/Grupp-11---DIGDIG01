@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class DamagePlayer : MonoBehaviour
 {
-    public TestPlayerHealth testPlayerHealth;
+    public Health health;
+    public int damage;
+    public PlayerMovement PlayerMovement;
+    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            testPlayerHealth.health = testPlayerHealth.health - 1;
+            Debug.Log("PlayerDamaged");
+
+            health.health = health.health - damage;
+            //knockback
+            var player = collision.collider.GetComponent<PlayerMovement>();
+            player.knockbackCount = player.knockbackLength;
+
+            if (collision.collider.transform.position.x < transform.position.x)
+                player.knockFromRight = true;
+            else
+                player.knockFromRight = false;
         }
     }
     // Start is called before the first frame update
