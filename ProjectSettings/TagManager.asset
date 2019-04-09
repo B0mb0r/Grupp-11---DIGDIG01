@@ -8,6 +8,8 @@ TagManager:
   - ShowOnPause
   - PlayerHurtBox
   - Ground
+  - Ground Detection
+  - Bound
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - GroundCheck
   - Ground
   - Bound
-  - 
+  - GroundDetection
   - 
   - 
   - 
