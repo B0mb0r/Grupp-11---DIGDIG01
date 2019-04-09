@@ -5,7 +5,7 @@ using UnityEngine;
 public class GroundChecker : MonoBehaviour
 {
     public bool isGrounded;
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Våran variabel som kollar om vi är på marken sätts som sann
