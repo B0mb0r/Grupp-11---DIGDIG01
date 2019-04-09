@@ -24,7 +24,7 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
         {
             WOrSIsPressed = true;
         }
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || PlayerMovement.knockbackCount <= 0)
         {
             WOrSIsPressed = false;
         }

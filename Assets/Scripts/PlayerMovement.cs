@@ -30,11 +30,25 @@ public class PlayerMovement : MonoBehaviour
     public bool knockFromRight;
     public float defaultKnockback;
     public float stunExtension;
-    
-    
+    public bool invincible = false;
+
 
 
     private Rigidbody2D rbody;
+
+    public void A()
+    {
+        if (!invincible)
+        {
+            invincible = true;
+            Invoke("ResetInvulnerability", 2);
+        }
+    }
+    void ResetInvulnerability()
+    {
+        invincible = false;
+    }
+
 
     void Start()
     {
@@ -58,11 +72,11 @@ public class PlayerMovement : MonoBehaviour
                 rbody.velocity = new Vector2(-knockbackx, knockbacky);
             if (!knockFromRight)
                 rbody.velocity = new Vector2(knockbackx, knockbacky);
-            knockbackCount -=  Time.deltaTime;
+            knockbackCount -= Time.deltaTime;
             knockbacky -= 10 * Time.deltaTime;
-            
-            
-            
+
+
+
         }
 
         //Jump
