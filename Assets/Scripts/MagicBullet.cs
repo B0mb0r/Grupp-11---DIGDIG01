@@ -23,7 +23,6 @@ public class MagicBullet : MonoBehaviour
         }
         if (hitInfo.tag == "Enemy" || hitInfo.tag == "Ground")
         {
-            Debug.Log("TJENA");
             Destroy(gameObject);
         }
         
