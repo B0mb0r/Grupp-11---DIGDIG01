@@ -19,7 +19,7 @@ public class MagicBullet : MonoBehaviour
         EnemyHealthSystem enemy = hitInfo.GetComponent<EnemyHealthSystem>();
         if(enemy != null)
         {
-            enemy.TakeDamage(MBDamage);
+            enemy.TakeDamageRanged(MBDamage);
         }
         if (hitInfo.tag == "Enemy" || hitInfo.tag == "Ground")
         {
