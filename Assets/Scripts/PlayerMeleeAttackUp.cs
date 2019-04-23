@@ -19,7 +19,7 @@ public class PlayerMeleeAttackUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.W))
+        if (Input.GetButtonDown("Fire1") && Input.GetAxis("Vertical") > 0)
         {
             if (timeBtwAttack <= 0)
             {

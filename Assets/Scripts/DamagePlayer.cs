@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class DamagePlayer : MonoBehaviour
 {
-    public Health Health;
+
+    public Health health;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Health.health = Health.health - 1;
+
+
+           health.health = health.health - 1;
+
         }
     }
     // Start is called before the first frame update
