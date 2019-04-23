@@ -22,10 +22,11 @@ public class cameraMovementTest : MonoBehaviour
     public float shakeTimer;
     public float cameraX;
     public float cameraY;
-    public float shakeMax;
-    public float shakeMin;
+    public float landingShakeMax;
+    public float landingShakeMin;
+    public float shaketimer;
 
-    public static float shake;
+    public static float landShake;
     public float shakeReduce;
 
     public float holdDownTime = 0;
@@ -79,20 +80,26 @@ public class cameraMovementTest : MonoBehaviour
         }
 
         // adda +1 till shake för kort screenshake
-        if (Input.GetKey(KeyCode.P))
-        {
-            shake++;
-        }
-        if (shake > 0)
+        //if (Input.GetKey(KeyCode.P))
+        //{
+        //    landShake++;
+        //}
+        if (landShake > 0)
         {
             cameraX = transform.position.x;
             cameraY = transform.position.y;
 
 
-                shakeSet = new Vector3(cameraX + Random.Range(shakeMax, shakeMin), cameraY + Random.Range(shakeMax, shakeMin), -10);
+                shakeSet = new Vector3(cameraX + Random.Range(landingShakeMax, landingShakeMin), cameraY + Random.Range(landingShakeMax, landingShakeMin), -10);
+            shaketimer += 1;
+                if (shaketimer >= 2)
+            {
+                shaketimer = 0;
+
                 transform.position = shakeSet;
+            }
             
-            shake-=shakeReduce;
+            landShake-=shakeReduce;
         }
 
         if (PlayerMovement.isJumping== false)

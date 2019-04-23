@@ -5,6 +5,8 @@ using UnityEngine;
 public class GroundChecker : MonoBehaviour
 {
     public bool isGrounded;
+    public float fallingSpeedMin;
+    public float addToCounter;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,9 +14,9 @@ public class GroundChecker : MonoBehaviour
         {
             //Våran variabel som kollar om vi är på marken sätts som sann
             isGrounded = true;
-            if (cameraMovementTest.landingCounter >= .55F)
+            if (cameraMovementTest.landingCounter >= fallingSpeedMin)
             {
-                cameraMovementTest.shake++;
+                cameraMovementTest.landShake++;
             }
         }
 
@@ -26,7 +28,7 @@ public class GroundChecker : MonoBehaviour
         {
             //Variabeln byts till falsk
             isGrounded = false;
-            cameraMovementTest.landingCounter = 0.12f;
+            cameraMovementTest.landingCounter = addToCounter;
         }
     }
 }
