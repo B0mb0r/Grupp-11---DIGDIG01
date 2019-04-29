@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3982122352435792445}
   - component: {fileID: 1578182385461749964}
   - component: {fileID: 1651310843400750814}
-  - component: {fileID: 2974242701092475798}
   - component: {fileID: 8799393358502946271}
+  - component: {fileID: 7986744641799662597}
   m_Layer: 9
   m_Name: debris1
   m_TagString: Ground
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6080301628343807736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.8, y: -0.36, z: -0.12480411}
+  m_LocalPosition: {x: -6.772, y: -0.341, z: -0.12480411}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e941378bfd276a84997ee3ff090d4acb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a706cd854eef51448adc137b7109a27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,53 +103,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &2974242701092475798
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6080301628343807736}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.1333334, y: 1.2}
-    newSize: {x: 2.1333334, y: 1.2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.013333334, y: -0.011666667}
-      - {x: -0.01, y: -0.008333334}
-      - {x: -0.01, y: 0.16166668}
-      - {x: -0.013333334, y: 0.165}
-      - {x: -0.065000005, y: 0.165}
-      - {x: -0.065000005, y: 0.23166667}
-      - {x: -0.068333335, y: 0.235}
-      - {x: -0.09666667, y: 0.235}
-      - {x: -0.065000005, y: 0.3216667}
-      - {x: -0.065000005, y: 0.5183334}
-      - {x: -0.068333335, y: 0.5216667}
-      - {x: -0.28, y: 0.5216667}
-      - {x: -0.37, y: 0.515}
-      - {x: -0.37666667, y: 0.51}
-      - {x: -0.3816667, y: 0.49333334}
-      - {x: -0.4166667, y: 0.37333333}
-      - {x: -0.435, y: 0.18166667}
-      - {x: -0.435, y: 0.045}
-      - {x: -0.43333334, y: -0.011666667}
-      - {x: -0.31666666, y: -0.011666667}
-      - {x: -0.31666666, y: 0.043333333}
-      - {x: -0.19333334, y: -0.011666667}
 --- !u!114 &8799393358502946271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,3 +121,44 @@ MonoBehaviour:
   opacityReduce: 0.3
   debris: {fileID: 1651310843400750814}
   initialForce: 10
+--- !u!60 &7986744641799662597
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6080301628343807736}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 2.1333334, y: 1.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.09375, y: -0.078125}
+      - {x: 0.0703125, y: 0.1015625}
+      - {x: 0.0625, y: 0.125}
+      - {x: -0.0390625, y: 0.0859375}
+      - {x: -0.1953125, y: 0.125}
+      - {x: -0.2265625, y: 0.125}
+      - {x: -0.34375, y: 0.0859375}
+      - {x: -0.3671875, y: 0.0703125}
+      - {x: -0.3671875, y: -0.203125}
+      - {x: -0.3359375, y: -0.3046875}
+      - {x: -0.3125, y: -0.4296875}
+      - {x: -0.2265625, y: -0.4609375}
+      - {x: -0.09375, y: -0.4609375}
+      - {x: 0.0546875, y: -0.328125}
+      - {x: 0.1171875, y: -0.2109375}
+      - {x: 0.1171875, y: -0.140625}

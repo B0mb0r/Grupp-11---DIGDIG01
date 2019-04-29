@@ -19,7 +19,7 @@ public class PlayerMeleeAttackDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.S) && groundCheck.isGrounded == false)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.S) && groundCheck.isGrounded <= 0)
         {
             if (timeBtwAttack <= 0)
             {

@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
             rbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rbody.velocity.y);
        
         //Om hopp knappen trycks in så händer något
-        if (Input.GetButtonDown("Jump") && groundCheck.isGrounded == true)
+        if (Input.GetButtonDown("Jump") && groundCheck.isGrounded >= 1)
         {
                 isJumping = true;
                 jumpTimeCounter = jumpTime;

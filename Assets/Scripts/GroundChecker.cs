@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundChecker : MonoBehaviour
 {
-    public bool isGrounded;
+    public float isGrounded;
     public float fallingSpeedMin;
     public float addToCounter;
 
@@ -13,7 +13,7 @@ public class GroundChecker : MonoBehaviour
         if (collision.tag == "Ground")
         {
             //Våran variabel som kollar om vi är på marken sätts som sann
-            isGrounded = true;
+            isGrounded += 1;
             if (cameraMovementTest.landingCounter >= fallingSpeedMin)
             {
                 cameraMovementTest.landShake++;
@@ -27,7 +27,7 @@ public class GroundChecker : MonoBehaviour
         if (collision.tag == "Ground")
         {
             //Variabeln byts till falsk
-            isGrounded = false;
+            isGrounded -= 1;
             cameraMovementTest.landingCounter = addToCounter;
         }
     }
