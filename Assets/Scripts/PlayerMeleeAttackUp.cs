@@ -14,6 +14,8 @@ public class PlayerMeleeAttackUp : MonoBehaviour
     public float rangeY;
     public LayerMask whatIsEnemies;
 
+    public PlayerRangedAttack ranged;
+
 
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class PlayerMeleeAttackUp : MonoBehaviour
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
+                    ranged.refillHits++;
                     GetComponent<Health>().LifeSteal(lifeSteal);
                 }
                 Debug.Log("AttackedUp");

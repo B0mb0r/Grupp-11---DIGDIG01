@@ -110,3 +110,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 6056136579180524948, guid: 726d4b23a9b98694aafec1daa4c5a433, type: 3}
+  FirePoint: {fileID: 5128118213211737095, guid: e11053d9e0568be4884c706471ddbbef,
+    type: 3}

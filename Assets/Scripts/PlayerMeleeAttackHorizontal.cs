@@ -15,6 +15,8 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
     public LayerMask whatIsEnemies;
     public bool WOrSIsPressed;
 
+    public PlayerRangedAttack ranged;
+
 
     // Update is called once per frame
     void Update()
@@ -37,6 +39,7 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
+                        ranged.refillHits++;
                         GetComponent<Health>().LifeSteal(lifeSteal);
                     }
                 Debug.Log("Attacked");
