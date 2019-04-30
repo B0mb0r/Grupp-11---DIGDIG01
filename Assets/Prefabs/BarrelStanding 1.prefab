@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 405977951}
   - component: {fileID: 405977950}
   - component: {fileID: 405977949}
-  - component: {fileID: 405977947}
+  - component: {fileID: 2578029219821191850}
   - component: {fileID: 3543825490865454408}
   m_Layer: 8
   m_Name: BarrelStanding 1
@@ -103,7 +103,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &405977947
+--- !u!114 &2578029219821191850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,16 +112,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 405977946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b1dc1bd3b208584790293a5c8ab3f24, type: 3}
+  m_Script: {fileID: 11500000, guid: 464b051ada0ec414086e0222a5a5f453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectDestroy: {fileID: 405977946}
   startingHealth: 1
   currentHealth: 0
   isDead: 0
-  debris1: {fileID: 6080301628343807736, guid: 95d0366ca1261864ebabbce6e856f02b, type: 3}
-  debris2: {fileID: 7865034934134467836, guid: 168f98ac011abaf408b1dc1a0f8abaec, type: 3}
-  debris3: {fileID: 5107680318844845136, guid: 91a8225500d59054c9f54456cdc5c0a4, type: 3}
+  debris1: {fileID: 6733724446462853311, guid: 95d0366ca1261864ebabbce6e856f02b, type: 3}
+  debris2: {fileID: 7878971462589037978, guid: 168f98ac011abaf408b1dc1a0f8abaec, type: 3}
+  debris3: {fileID: 961083881892678413, guid: 91a8225500d59054c9f54456cdc5c0a4, type: 3}
 --- !u!60 &3543825490865454408
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -147,21 +147,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.34375, y: 0.2890625}
-      - {x: 0.2890625, y: 0.4375}
-      - {x: 0.1953125, y: 0.46875}
-      - {x: 0.15625, y: 0.4765625}
-      - {x: -0.125, y: 0.4765625}
-      - {x: -0.21875, y: 0.453125}
-      - {x: -0.28125, y: 0.4140625}
-      - {x: -0.3125, y: 0.234375}
-      - {x: -0.3125, y: -0.1328125}
-      - {x: -0.3046875, y: -0.2109375}
-      - {x: -0.265625, y: -0.3984375}
-      - {x: -0.2265625, y: -0.453125}
-      - {x: -0.1640625, y: -0.46875}
-      - {x: 0.1640625, y: -0.46875}
-      - {x: 0.25, y: -0.4609375}
-      - {x: 0.28125, y: -0.4296875}
-      - {x: 0.3203125, y: -0.3125}
-      - {x: 0.34375, y: -0.1796875}
+    - - {x: 0.30641222, y: 0.26166666}
+      - {x: 0.2674985, y: 0.41395816}
+      - {x: 0.021861553, y: 0.45912877}
+      - {x: -0.18168259, y: 0.42651513}
+      - {x: -0.2378254, y: 0.4012409}
+      - {x: -0.28511906, y: 0.20091915}
+      - {x: -0.28481674, y: -0.18442768}
+      - {x: -0.21925735, y: -0.42052913}
+      - {x: -0.16847897, y: -0.43782187}
+      - {x: 0.15523052, y: -0.44665837}
+      - {x: 0.25033855, y: -0.42306006}
+      - {x: 0.2979102, y: -0.26517987}
+      - {x: 0.31387997, y: -0.13983893}

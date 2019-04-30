@@ -9,6 +9,7 @@ public class DamagePlayer : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            cameraMovementTest.landShake += 1;
             TestPlayerHealth.health -= 1;
         }
     }

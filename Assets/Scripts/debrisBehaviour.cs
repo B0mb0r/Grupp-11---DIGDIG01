@@ -13,13 +13,13 @@ public class debrisBehaviour : MonoBehaviour
 
     private void Start()
     {
+        cameraMovementTest.landShake += 0.5f;
         debris.velocity = (new Vector2 (Random.Range (-initialForce,initialForce ), Random.Range (-initialForce,initialForce)));
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-       
         clearTimer -= 1 * Time.deltaTime;
 
         if (clearTimer <= 0)

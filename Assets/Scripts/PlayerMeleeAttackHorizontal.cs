@@ -27,22 +27,29 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
         {
             WOrSIsPressed = false;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0)) 
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (WOrSIsPressed == false)
-            if (timeBtwAttack <= 0)
-            {
-                timeBtwAttack = startTimeBtwAttack;
-                Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPosition.position, new Vector2(rangeX, rangeY), 0, whatIsEnemies);
-                for (int i = 0; i < enemiesToDamage.Length; i++)
+                if (timeBtwAttack <= 0)
                 {
-                    enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
-                  
-                        GetComponent<Health>().LifeSteal(lifeSteal);
-                
+                    timeBtwAttack = startTimeBtwAttack;
+                    Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPosition.position, new Vector2(rangeX, rangeY), 0, whatIsEnemies);
+                    for (int i = 0; i < enemiesToDamage.Length; i++)
+                    {
+
+                        enemiesToDamage[i].GetComponent<BarrelHealthSystem>().TakeDamage(damage);
+
                     }
-                Debug.Log("Attacked");
-            }
+                    for (int i = 0; i < enemiesToDamage.Length; i++)
+                    {
+
+                        enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
+
+                        GetComponent<Health>().LifeSteal(lifeSteal);
+
+                    }
+                    Debug.Log("Attacked");
+                }
         }
         else
         {

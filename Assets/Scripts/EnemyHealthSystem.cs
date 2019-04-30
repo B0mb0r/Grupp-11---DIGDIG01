@@ -12,9 +12,6 @@ public class EnemyHealthSystem : MonoBehaviour
     // if the enemy is dead.
     public bool isDead;
 
-    public GameObject debris1;
-    public GameObject debris2;
-    public GameObject debris3;
 
     // Start is called before the first frame update
     void Awake()
@@ -56,9 +53,7 @@ public class EnemyHealthSystem : MonoBehaviour
         if (isDead == true)
         {
             Destroy(objectDestroy);
-            Instantiate(debris3, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-            Instantiate(debris1, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-            Instantiate(debris2, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+
         }
     }
 

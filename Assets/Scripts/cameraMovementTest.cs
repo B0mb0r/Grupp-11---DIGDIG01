@@ -79,7 +79,7 @@ public class cameraMovementTest : MonoBehaviour
             transform.position = new Vector3(transform.position.x, maxBounds.y - halfHeight, -10);
         }
 
-        // adda +1 till shake för kort screenshake
+        // adda +1 till landshake för kort screenshake
         //if (Input.GetKey(KeyCode.P))
         //{
         //    landShake++;
@@ -91,7 +91,7 @@ public class cameraMovementTest : MonoBehaviour
 
 
                 shakeSet = new Vector3(cameraX + Random.Range(landingShakeMax, landingShakeMin), cameraY + Random.Range(landingShakeMax, landingShakeMin), -10);
-            shaketimer += 1;
+            shaketimer += 1f;
                 if (shaketimer >= 2)
             {
                 shaketimer = 0;
