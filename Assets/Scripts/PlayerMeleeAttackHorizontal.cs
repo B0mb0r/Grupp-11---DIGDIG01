@@ -19,15 +19,19 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0)
         {
             WOrSIsPressed = true;
         }
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
+        if (Input.GetAxis("Vertical") == 0 || Input.GetAxis("Vertical") == 0)
         {
             WOrSIsPressed = false;
         }
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
+
+        if (Input.GetButton("Fire1"))
+
         {
             if (WOrSIsPressed == false)
                 if (timeBtwAttack <= 0)
@@ -40,14 +44,7 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
                         enemiesToDamage[i].GetComponent<BarrelHealthSystem>().TakeDamage(damage);
 
                     }
-                    for (int i = 0; i < enemiesToDamage.Length; i++)
-                    {
-
-                        enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
-
-                        GetComponent<Health>().LifeSteal(lifeSteal);
-
-                    }
+                 
                     Debug.Log("Attacked");
                 }
         }

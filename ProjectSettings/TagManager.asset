@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Ground Detection
+  - Enemy
   - Ground
-  - InvisibleWall
   layers:
   - Default
   - TransparentFX
@@ -15,10 +16,10 @@ TagManager:
   - UI
   - 
   - 
-  - Enemies
-  - Debris1
+  - Debris
   - Player
-  - 
+  - Ground
+  - Enemy
   - 
   - 
   - 

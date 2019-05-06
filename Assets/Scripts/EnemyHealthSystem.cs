@@ -13,6 +13,10 @@ public class EnemyHealthSystem : MonoBehaviour
     public bool isDead;
 
 
+
+    public PlayerRangedAttack PRA;
+    
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -45,6 +49,13 @@ public class EnemyHealthSystem : MonoBehaviour
     {
         currentHealth -= damage;
         Debug.Log("damage TAKEN");
+        PRA.currentAmmo += 1;
+    }
+
+    public void TakeDamageRanged(int MBdamage)
+    {
+        currentHealth -= MBdamage;
+        Debug.Log("damage TAKEN from Ranged");
     }
 
     void TrueDeath()

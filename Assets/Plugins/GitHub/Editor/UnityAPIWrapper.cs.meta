@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/EnemyHorizontalMovement.cs.meta
+guid: f555e5fdc1a794e44944bb6c7b915505
+=======
+guid: 555cd6f54c03341b1970d950df1a5ee5
+>>>>>>> 61971d8fd22505471e0f0ddefa1cdd1acf09c2f3:Assets/Plugins/GitHub/Editor/UnityAPIWrapper.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

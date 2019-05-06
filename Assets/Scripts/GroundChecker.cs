@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class GroundChecker : MonoBehaviour
 {
+
     public float isGrounded;
     public float fallingSpeedMin;
     public float addToCounter;
+
+
+    
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 405977949}
   - component: {fileID: 2578029219821191850}
   - component: {fileID: 3543825490865454408}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: BarrelStanding 1
   m_TagString: Ground
   m_Icon: {fileID: 0}

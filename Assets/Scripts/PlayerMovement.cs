@@ -19,7 +19,12 @@ public class PlayerMovement : MonoBehaviour
     public float dashCounter = 1;
 
     private int lookDirection;
+
     public static bool lookingRight;
+
+    private bool P_FacingRight = true;
+
+
 
     public GroundChecker groundCheck;
 
@@ -36,17 +41,25 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-  
+
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            lookDirection = -1;
+            if (P_FacingRight == false)
+            {
+               // Flip();
+            }
+        }
         if (Input.GetAxis("Horizontal") < 0)
         {
-            transform.localScale = new Vector2(-1, 1);
+            lookDirection = 1;
+            if (P_FacingRight == true)
+            {
+                // Flip();
+            }
         }
-        else if (Input.GetAxis("Horizontal") > 0)
-        {
-            transform.localScale = new Vector2(1, 1);
-        }
-            //När en av horizontala rörelse knapparna trycks in så går Player i den riktningen med Playerns moveSpeed
-            rbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rbody.velocity.y);
+        //När en av horizontala rörelse knapparna trycks in så går Player i den riktningen med Playerns moveSpeed
+        rbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rbody.velocity.y);
        
         //Om hopp knappen trycks in så händer något
         if (Input.GetButtonDown("Jump") && groundCheck.isGrounded >= 1)
@@ -77,17 +90,31 @@ public class PlayerMovement : MonoBehaviour
         {
             lookDirection = -1;
 
+
             transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+
+
+            if(P_FacingRight == false)
+            {
+               // Flip();
+            }
 
         }
         if (Input.GetAxis("Horizontal") < 0)
         {
             lookDirection = 1;
 
+
             transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
 
+
+            if (P_FacingRight == true)
+            {
+             //   Flip();
+            }
+
         }
-        if (Input.GetButton("Fire3") && dashtime > 0 && dashCooldownRemaining <= 0 && dashCounter > 0)
+        if (Input.GetButtonDown("Fire3") && dashtime > 0 && dashCooldownRemaining <= 0 && dashCounter > 0)
         {
             if (lookDirection == 1)
             {
@@ -122,4 +149,10 @@ public class PlayerMovement : MonoBehaviour
     {
         dashCounter = 1 * Time.deltaTime;
     }
+    //void Flip()
+    //{
+    //    P_FacingRight = !P_FacingRight;
+
+    //    transform.Rotate(0f, 180f, 0f);
+    //}
 }
