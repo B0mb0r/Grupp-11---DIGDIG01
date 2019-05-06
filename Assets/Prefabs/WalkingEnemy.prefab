@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6269882663692253463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.72, y: -0.274, z: 1.4863281}
+  m_LocalPosition: {x: 0.497, y: -0.274, z: 1.4863281}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6269882664866901347}
@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 6269882664866901345}
   - component: {fileID: 6269882664866901344}
   - component: {fileID: 6269882664866901375}
-  - component: {fileID: 6269882664866901374}
   - component: {fileID: 6269882664866901373}
   m_Layer: 8
   m_Name: WalkingEnemy
@@ -174,23 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa617b78633e0b4a9ef0bdb53459bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
---- !u!114 &6269882664866901374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6269882664866901372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b1dc1bd3b208584790293a5c8ab3f24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectDestroy: {fileID: 6269882664866901372}
-  startingHealth: 1
-  currentHealth: 0
-  isDead: 0
 --- !u!114 &6269882664866901373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,10 +185,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7e9f5d0607cfa418f5314f07a691c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3.5
   distance: 1
   movingRight: 1
   groundDetection: {fileID: 6269882663692253464}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
+  dazedTime: 0
+  startDazedtime: 0.2
+  objectDestroy: {fileID: 6269882664866901372}
+  startingHealth: 25
+  currentHealth: 0
+  isDead: 0
