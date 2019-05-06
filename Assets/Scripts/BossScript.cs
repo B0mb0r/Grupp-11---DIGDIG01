@@ -1,27 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class EnemyHealthSystem : MonoBehaviour
+public class BossScript : MonoBehaviour
 {
-    public GameObject objectDestroy;
-    // the amount of health the enamy starts with.
-    public int startingHealth = 1;
-    // the current health the enemy have.
+    public int startingHealth = 100;
     public int currentHealth;
-    // if the enemy is dead.
     public bool isDead;
+    public GameObject objectDestroy;
 
+    public Slider healthBar;
     // Start is called before the first frame update
     void Awake()
     {
         isDead = false;
-        // Setting the current health when enemy spawn
         currentHealth = startingHealth;
     }
 
+    // Update is called once per frame
     void Update()
     {
+        healthBar.value = currentHealth;
         if (currentHealth <= 0)
         {
             isDead = true;
@@ -31,11 +31,8 @@ public class EnemyHealthSystem : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-
         currentHealth -= damage;
-
         Debug.Log("damage TAKEN");
-
     }
 
     void TrueDeath()
@@ -46,5 +43,4 @@ public class EnemyHealthSystem : MonoBehaviour
             Destroy(objectDestroy);
         }
     }
-
 }

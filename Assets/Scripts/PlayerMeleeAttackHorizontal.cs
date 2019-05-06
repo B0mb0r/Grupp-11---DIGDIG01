@@ -30,17 +30,37 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
         if (Input.GetButton("Fire1"))
         {
             if (WOrSIsPressed == false)
-            if (timeBtwAttack <= 0)
-            {
-                timeBtwAttack = startTimeBtwAttack;
-                Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPosition.position, new Vector2(rangeX, rangeY), 0, whatIsEnemies);
-                for (int i = 0; i < enemiesToDamage.Length; i++)
+                if (timeBtwAttack <= 0)
                 {
-                    enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
+                    timeBtwAttack = startTimeBtwAttack;
+                    Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPosition.position, new Vector2(rangeX, rangeY), 0, whatIsEnemies);
+                    for (int i = 0; i < enemiesToDamage.Length; i++)
+                    {
+                        EnemyHealthSystem ehs;
+                        ehs = enemiesToDamage[i].GetComponent<EnemyHealthSystem>();
+                        if (ehs)
+                        {
+                            ehs.TakeDamage(damage);
+                        }
+                        BossScript boss;
+                        boss = enemiesToDamage[i].GetComponent<BossScript>();
+                        if (boss)
+                        {
+                            boss.TakeDamage(damage);
+                        }
+                        WalkingEnemy walking;
+                        walking = enemiesToDamage[i].GetComponent<WalkingEnemy>();
+                        if (walking)
+                        {
+                            walking.TakeDamage(damage);
+                        }
+
+
                         GetComponent<Health>().LifeSteal(lifeSteal);
+
                     }
-                Debug.Log("Attacked");
-            }
+                    Debug.Log("Attacked");
+                }
         }
         else
         {

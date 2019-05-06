@@ -4,23 +4,16 @@ using UnityEngine;
 
 public class DamagePlayer : MonoBehaviour
 {
-    public Health health;
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        print(collision.gameObject.name);
         if (collision.gameObject.tag == "Player")
         {
-           health.health = health.health - 1;
+            collision.gameObject.GetComponent<Health>().health -= 1;
+            print(collision.gameObject.GetComponent<Health>().health);
+
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
