@@ -32,6 +32,11 @@ public class PlayerMovement : MonoBehaviour
     public float stunExtension;
     public bool invincible = false;
 
+    public float spriteBlinkingTimer = 0.0f;
+    public float spriteBlinkingMiniDuration = 0.1f;
+    public float spriteBlinkingTotalTimer = 0.0f;
+    public float spriteBlinkingTotalDuration = 1.0f;
+    public bool startBlinking = false;
 
 
     private Rigidbody2D rbody;
@@ -40,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!invincible)
         {
+            
             invincible = true;
             Invoke("ResetInvulnerability", 2);
         }
@@ -47,6 +53,32 @@ public class PlayerMovement : MonoBehaviour
     void ResetInvulnerability()
     {
         invincible = false;
+    }
+    public void SpriteBlinkingEffect()
+    {
+        spriteBlinkingTotalTimer += Time.deltaTime;
+        if (spriteBlinkingTotalTimer >= spriteBlinkingTotalDuration)
+        {
+            startBlinking = false;
+            spriteBlinkingTotalTimer = 0.0f;
+            this.gameObject.GetComponent<SpriteRenderer>().enabled = true;   // according to 
+                                                                             //your sprite
+            return;
+        }
+
+        spriteBlinkingTimer += Time.deltaTime;
+        if (spriteBlinkingTimer >= spriteBlinkingMiniDuration)
+        {
+            spriteBlinkingTimer = 0.0f;
+            if (this.gameObject.GetComponent<SpriteRenderer>().enabled == true)
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().enabled = false;  //make changes
+            }
+            else
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().enabled = true;   //make changes
+            }
+        }
     }
 
 

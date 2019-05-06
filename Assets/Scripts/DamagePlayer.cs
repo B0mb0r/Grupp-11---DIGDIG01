@@ -6,7 +6,8 @@ public class DamagePlayer : MonoBehaviour
 {
     public Health health;
     public int damage;
-
+    public PlayerMovement PlayerMovement;
+    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,13 +22,14 @@ public class DamagePlayer : MonoBehaviour
                 health.health = health.health - damage;
                 //knockback
                 player.knockbackCount = player.knockbackLength;
-                player.A();
+
 
                 if (collision.collider.transform.position.x < transform.position.x)
                     player.knockFromRight = true;
                 else
                     player.knockFromRight = false;
-                
+                player.A();
+                player.startBlinking = true;
             }
         }
     }
@@ -40,6 +42,9 @@ public class DamagePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(PlayerMovement.startBlinking == true)
+        {
+            PlayerMovement.SpriteBlinkingEffect();
+        }
     }
 }
