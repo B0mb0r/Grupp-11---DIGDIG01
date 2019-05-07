@@ -34,7 +34,16 @@ public class EnemyHealthSystem : MonoBehaviour
 
         currentHealth -= damage;
 
-        Debug.Log("damage TAKEN");
+        Debug.Log("damage TAKEN melee");
+
+    }
+
+    public void TakeDamageRanged(int MBDamage)
+    {
+
+        currentHealth -= MBDamage;
+
+        Debug.Log("damage TAKEN from ranged");
 
     }
 

@@ -11,6 +11,7 @@ public class BossMovement : MonoBehaviour
     private float jumpCdCounter;
     public float verticalJumpForce = 10f;
     public float horizontalJumpForce = 5f;
+    public Transform target;
 
     private bool P_FacingRight = true;
 
@@ -19,6 +20,7 @@ public class BossMovement : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void Update()

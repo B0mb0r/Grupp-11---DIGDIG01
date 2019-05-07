@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
                 Flip();
             }
         }
-        if (Input.GetButtonDown("Fire3") && dashtime > 0 && dashCooldownRemaining <= 0 && dashCounter > 0)
+        if (Input.GetButton("Fire3") && dashtime > 0 && dashCooldownRemaining <= 0 && dashCounter > 0)
         {
             if (lookDirection == 1)
             {

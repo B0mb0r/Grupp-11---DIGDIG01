@@ -153,7 +153,7 @@ MonoBehaviour:
   jumpSpeed: 13
   jumpTimeCounter: 0
   jumpTime: 0.35
-  dashSpeed: 25
+  dashSpeed: 50
   dashCooldown: 0.5
   dashCooldownRemaining: 0
   dashtime: 0.1
@@ -300,7 +300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5806584902233765069}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 0.966, z: -5.957668}
+  m_LocalPosition: {x: 0.01, y: 0.966, z: -5.957668}
   m_LocalScale: {x: 1, y: 0.5839416, z: 1}
   m_Children: []
   m_Father: {fileID: 5806584901483883880}

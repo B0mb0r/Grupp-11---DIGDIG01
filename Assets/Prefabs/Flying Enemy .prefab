@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   stopChasing: 11
-  target: {fileID: 0}
+  target: {fileID: 5806584901483883880, guid: 97a194d4d01a5264ab5c43fdc774616a, type: 3}
 --- !u!114 &304955934667903004
 MonoBehaviour:
   m_ObjectHideFlags: 0
