@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BossScript : MonoBehaviour
+public class BossHealth : MonoBehaviour
 {
     public int startingHealth = 100;
     public int currentHealth;

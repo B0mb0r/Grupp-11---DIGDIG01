@@ -42,8 +42,8 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
                         {
                             ehs.TakeDamage(damage);
                         }
-                        BossScript boss;
-                        boss = enemiesToDamage[i].GetComponent<BossScript>();
+                        BossHealth boss;
+                        boss = enemiesToDamage[i].GetComponent<BossHealth>();
                         if (boss)
                         {
                             boss.TakeDamage(damage);
