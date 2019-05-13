@@ -12,10 +12,13 @@ public class EnemyHealthSystem : MonoBehaviour
     // if the enemy is dead.
     public bool isDead;
 
-
+    public GameObject guts1;
+    public GameObject guts2;
+    public GameObject guts3;
+    public GameObject guts4;
 
     public PlayerRangedAttack PRA;
-    
+    public int ammoAmount;
 
     // Start is called before the first frame update
     void Awake()
@@ -49,7 +52,7 @@ public class EnemyHealthSystem : MonoBehaviour
     {
         currentHealth -= damage;
         Debug.Log("damage TAKEN");
-        PRA.currentAmmo += 1;
+        PRA.currentAmmo += ammoAmount;
     }
 
     public void TakeDamageRanged(int MBdamage)
@@ -64,6 +67,11 @@ public class EnemyHealthSystem : MonoBehaviour
         if (isDead == true)
         {
             Destroy(objectDestroy);
+            Instantiate(guts1, new Vector3(transform.position.x, transform.position.y+ 0.5f, transform.position.z), Quaternion.identity);
+            Instantiate(guts2, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
+            Instantiate(guts3, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
+            Instantiate(guts4, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
+
 
         }
     }

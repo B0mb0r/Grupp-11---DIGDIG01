@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 405977951}
   - component: {fileID: 405977950}
   - component: {fileID: 405977949}
-  - component: {fileID: 2578029219821191850}
+  - component: {fileID: 3725015885538383564}
   - component: {fileID: 3543825490865454408}
   m_Layer: 11
   m_Name: BarrelStanding 1
@@ -103,7 +103,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2578029219821191850
+--- !u!114 &3725015885538383564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,16 +112,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 405977946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 464b051ada0ec414086e0222a5a5f453, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b1dc1bd3b208584790293a5c8ab3f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectDestroy: {fileID: 405977946}
   startingHealth: 1
   currentHealth: 0
   isDead: 0
-  debris1: {fileID: 6733724446462853311, guid: 95d0366ca1261864ebabbce6e856f02b, type: 3}
-  debris2: {fileID: 7878971462589037978, guid: 168f98ac011abaf408b1dc1a0f8abaec, type: 3}
-  debris3: {fileID: 961083881892678413, guid: 91a8225500d59054c9f54456cdc5c0a4, type: 3}
+  guts1: {fileID: 6733724446462853311, guid: 95d0366ca1261864ebabbce6e856f02b, type: 3}
+  guts2: {fileID: 7878971462589037978, guid: 168f98ac011abaf408b1dc1a0f8abaec, type: 3}
+  guts3: {fileID: 961083881892678413, guid: 91a8225500d59054c9f54456cdc5c0a4, type: 3}
+  guts4: {fileID: 0}
+  PRA: {fileID: 0}
+  ammoAmount: 0
 --- !u!60 &3543825490865454408
 PolygonCollider2D:
   m_ObjectHideFlags: 0

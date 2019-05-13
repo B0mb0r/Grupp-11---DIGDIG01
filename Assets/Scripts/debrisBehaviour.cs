@@ -9,12 +9,14 @@ public class debrisBehaviour : MonoBehaviour
     public float opacity ;
     public float opacityReduce;
     public Rigidbody2D debris;
-    public float initialForce;
+    public float initialForceX;
+    public float initialForceMin;
+    public float initialForceMax;
 
     private void Start()
     {
         cameraMovementTest.landShake += 0.5f;
-        debris.velocity = (new Vector2 (Random.Range (-initialForce,initialForce ), Random.Range (-initialForce,initialForce)));
+        debris.velocity = (new Vector2 (Random.Range (-initialForceX, initialForceX), Random.Range (initialForceMin,initialForceMax)));
     }
 
     // Update is called once per frame

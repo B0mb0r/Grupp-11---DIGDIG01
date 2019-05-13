@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DustCloud : MonoBehaviour
+public class dustCloud : MonoBehaviour
 {
 
     [SerializeField]

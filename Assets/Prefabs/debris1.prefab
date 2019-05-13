@@ -102,7 +102,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 94ab5a6365b42954e9ff5b57760b67b2, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -125,7 +125,9 @@ MonoBehaviour:
   opacity: 1
   opacityReduce: 0.3
   debris: {fileID: 6733724446462853298}
-  initialForce: 5
+  initialForceX: 5
+  initialForceMin: -5
+  initialForceMax: 5
 --- !u!60 &6733724446462853308
 PolygonCollider2D:
   m_ObjectHideFlags: 0
