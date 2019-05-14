@@ -8,6 +8,7 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
     public int lifeSteal = 1;
     public float startTimeBtwAttack;
     private float timeBtwAttack;
+    public Animator animator;
 
     public Transform attackPosition;
     public float rangeX;
@@ -34,6 +35,7 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
                 {
                     timeBtwAttack = startTimeBtwAttack;
                     Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPosition.position, new Vector2(rangeX, rangeY), 0, whatIsEnemies);
+                    animator.SetBool("isAttackingHorizontal", true);
                     for (int i = 0; i < enemiesToDamage.Length; i++)
                     {
                         EnemyHealthSystem ehs;
@@ -64,6 +66,7 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
         }
         else
         {
+            animator.SetBool("isAttackingHorizontal", false);
             timeBtwAttack -= Time.deltaTime;
         }
 

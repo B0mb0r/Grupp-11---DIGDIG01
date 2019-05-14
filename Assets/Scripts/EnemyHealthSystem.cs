@@ -47,6 +47,13 @@ public class EnemyHealthSystem : MonoBehaviour
 
     }
 
+    public void TakeDamageRanged (int MBDamage)
+    {
+        currentHealth -= MBDamage;
+
+        Debug.Log("damage TAKEN from ranged");
+    }
+
     void TrueDeath()
     {
 
