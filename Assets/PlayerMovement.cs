@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpTimeCounter;
     public float jumpTime = 0.35f;
     private bool isFalling;
+    private bool P_FacingRight = true;
 
     public float dashSpeed;
     public float dashCooldown = 3;
@@ -93,21 +94,23 @@ public class PlayerMovement : MonoBehaviour
 
 //Dash
 
-bool flipSprite = (spriteRenderer.flipX ? (rbody.velocity.x > 0.01f) : (rbody.velocity.x < 0.0f));
-        if (flipSprite)
+        if (Input.GetAxis("Horizontal") > 0)
         {
-            spriteRenderer.flipX = !spriteRenderer.flipX;
+            lookDirection = -1;
+            if (P_FacingRight == false)
+            {
+                Flip();
+            }
         }
-
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetAxis("Horizontal") < 0)
         {
             lookDirection = 1;
+            if (P_FacingRight == true)
+            {
+                Flip();
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            lookDirection = 2;
-        }
 
 
         if (Input.GetButton("Fire3") && dashtime > 0 && dashCooldownRemaining <= 0 && dashCounter > 0)
@@ -141,5 +144,11 @@ dashtime -= Time.deltaTime;
 {
     dashCounter = 1 * Time.deltaTime;
 }
-    
+    void Flip()
+    {
+        P_FacingRight = !P_FacingRight;
+
+        transform.Rotate(0f, 180f, 0f);
+    }
+
 }
