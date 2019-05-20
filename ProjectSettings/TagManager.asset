@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - Ground Detection
   - Bound
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Ground
   - Bound
   - GroundDetection
-  - 
+  - Projectile
   - 
   - 
   - 

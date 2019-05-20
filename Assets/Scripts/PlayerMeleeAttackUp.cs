@@ -8,6 +8,7 @@ public class PlayerMeleeAttackUp : MonoBehaviour
     public int lifeSteal = 1;
     public float startTimeBtwAttack;
     private float timeBtwAttack;
+    public Animator animator;
 
     public Transform attackPosition;
     public float rangeX;
@@ -25,9 +26,28 @@ public class PlayerMeleeAttackUp : MonoBehaviour
             {
                 timeBtwAttack = startTimeBtwAttack;
                 Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPosition.position, new Vector2(rangeX, rangeY), 0, whatIsEnemies);
+                animator.SetBool("isAttackingVertical", true);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
+                    EnemyHealthSystem ehs;
+                    ehs = enemiesToDamage[i].GetComponent<EnemyHealthSystem>();
+                    if (ehs)
+                    {
+                        ehs.TakeDamage(damage);
+                    }
+                    BossHealth boss;
+                    boss = enemiesToDamage[i].GetComponent<BossHealth>();
+                    if (boss)
+                    {
+                        boss.TakeDamage(damage);
+                    }
+                    WalkingEnemy walking;
+                    walking = enemiesToDamage[i].GetComponent<WalkingEnemy>();
+                    if (walking)
+                    {
+                        walking.TakeDamage(damage);
+                    }
+
                     GetComponent<Health>().LifeSteal(lifeSteal);
                 }
                 Debug.Log("AttackedUp");
@@ -35,6 +55,7 @@ public class PlayerMeleeAttackUp : MonoBehaviour
         }
         else
         {
+            animator.SetBool("isAttackingVertical", false);
             timeBtwAttack -= Time.deltaTime;
         }
 

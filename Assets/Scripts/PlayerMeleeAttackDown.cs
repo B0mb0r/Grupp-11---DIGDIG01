@@ -27,7 +27,26 @@ public class PlayerMeleeAttackDown : MonoBehaviour
                 Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPosition.position, new Vector2(rangeX, rangeY), 0, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
+                    EnemyHealthSystem ehs;
+                    ehs = enemiesToDamage[i].GetComponent<EnemyHealthSystem>();
+                    if (ehs)
+                    {
+                        ehs.TakeDamage(damage);
+                    }
+                    BossHealth boss;
+                    boss = enemiesToDamage[i].GetComponent<BossHealth>();
+                    if (boss)
+                    {
+                        boss.TakeDamage(damage);
+                    }
+                    WalkingEnemy walking;
+                    walking = enemiesToDamage[i].GetComponent<WalkingEnemy>();
+                    if (walking)
+                    {
+                        walking.TakeDamage(damage);
+                    }
+
+
                     GetComponent<Health>().LifeSteal(lifeSteal);
                 }
                 Debug.Log("AttackedDown");

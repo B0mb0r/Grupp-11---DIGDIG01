@@ -10,8 +10,8 @@ public class EnemyHealthSystem : MonoBehaviour
     // the current health the enemy have.
     public int currentHealth;
     // if the enemy is dead.
-    public bool isDead; 
-    
+    public bool isDead;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -29,26 +29,34 @@ public class EnemyHealthSystem : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amount, Vector3 hitPoint)
-    {
-
-        currentHealth -= amount;
-        if(currentHealth <= 0)
-        {
-            isDead = true;
-            TrueDeath();
-        }
-    }
-
     public void TakeDamage(int damage)
     {
+
         currentHealth -= damage;
-        Debug.Log("damage TAKEN");
+
+        Debug.Log("damage TAKEN melee");
+
+    }
+
+    public void TakeDamageRanged(int MBDamage)
+    {
+
+        currentHealth -= MBDamage;
+
+        Debug.Log("damage TAKEN from ranged");
+
+    }
+
+    public void TakeDamageRanged (int MBDamage)
+    {
+        currentHealth -= MBDamage;
+
+        Debug.Log("damage TAKEN from ranged");
     }
 
     void TrueDeath()
     {
-        
+
         if (isDead == true)
         {
             Destroy(objectDestroy);

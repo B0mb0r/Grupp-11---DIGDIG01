@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementTest : MonoBehaviour
 {
     public float moveSpeed = 6f;
 
@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashCounter = 1;
 
     private int lookDirection;
+    private bool P_FacingRight = true;
 
     public GroundChecker groundCheck;
 
@@ -63,12 +64,18 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetAxis("Horizontal") > 0)
         {
             lookDirection = -1;
-            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            if(P_FacingRight == false)
+            {
+                Flip();
+            }
         }
         if (Input.GetAxis("Horizontal") < 0)
         {
             lookDirection = 1;
-            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            if (P_FacingRight == true)
+            {
+                Flip();
+            }
         }
         if (Input.GetButton("Fire3") && dashtime > 0 && dashCooldownRemaining <= 0 && dashCounter > 0)
         {
@@ -102,5 +109,11 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         dashCounter = 1 * Time.deltaTime;
+    }
+    void Flip()
+    {
+        P_FacingRight = !P_FacingRight;
+
+        transform.Rotate(0f, 180f, 0f);
     }
 }
