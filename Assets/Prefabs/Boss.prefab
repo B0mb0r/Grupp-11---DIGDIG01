@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundCheck: {fileID: 7648431303332716948}
+  wallCheck: {fileID: 7648431303332716948}
   jumpCooldown: 1
   verticalJumpForce: 10
   horizontalJumpForce: 5
