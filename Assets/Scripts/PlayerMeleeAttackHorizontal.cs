@@ -16,6 +16,8 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
     public LayerMask whatIsEnemies;
     public bool WOrSIsPressed;
 
+    public PlayerRangedAttack ranged;
+
 
     // Update is called once per frame
     void Update()
@@ -33,6 +35,7 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
             if (WOrSIsPressed == false)
                 if (timeBtwAttack <= 0)
                 {
+<<<<<<< HEAD
                     timeBtwAttack = startTimeBtwAttack;
                     Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPosition.position, new Vector2(rangeX, rangeY), 0, whatIsEnemies);
                     animator.SetBool("isAttackingHorizontal", true);
@@ -58,6 +61,10 @@ public class PlayerMeleeAttackHorizontal : MonoBehaviour
                         }
 
 
+=======
+                    enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
+                        ranged.refillHits++;
+>>>>>>> Hugo
                         GetComponent<Health>().LifeSteal(lifeSteal);
 
                     }

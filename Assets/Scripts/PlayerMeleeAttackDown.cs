@@ -15,6 +15,8 @@ public class PlayerMeleeAttackDown : MonoBehaviour
     public LayerMask whatIsEnemies;
     public GroundChecker groundCheck;
 
+    public PlayerRangedAttack ranged;
+
 
     // Update is called once per frame
     void Update()
@@ -27,6 +29,7 @@ public class PlayerMeleeAttackDown : MonoBehaviour
                 Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPosition.position, new Vector2(rangeX, rangeY), 0, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
+<<<<<<< HEAD
                     EnemyHealthSystem ehs;
                     ehs = enemiesToDamage[i].GetComponent<EnemyHealthSystem>();
                     if (ehs)
@@ -47,6 +50,10 @@ public class PlayerMeleeAttackDown : MonoBehaviour
                     }
 
 
+=======
+                    enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
+                    ranged.refillHits++;
+>>>>>>> Hugo
                     GetComponent<Health>().LifeSteal(lifeSteal);
                 }
                 Debug.Log("AttackedDown");

@@ -11,7 +11,11 @@ public class EnemyHealthSystem : MonoBehaviour
     public int currentHealth;
     // if the enemy is dead.
     public bool isDead;
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> Hugo
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,11 +44,16 @@ public class EnemyHealthSystem : MonoBehaviour
 
     public void TakeDamageRanged(int MBDamage)
     {
+<<<<<<< HEAD
 
         currentHealth -= MBDamage;
 
         Debug.Log("damage TAKEN from ranged");
 
+=======
+        currentHealth -= damage;
+        Debug.Log("damage TAKEN");
+>>>>>>> Hugo
     }
 
     public void TakeDamageRanged (int MBDamage)

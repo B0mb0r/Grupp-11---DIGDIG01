@@ -10,8 +10,10 @@ public class PlayerRangedAttack : MonoBehaviour
 
     public int maxAmmo = 5;
     public int currentAmmo;
+    public int refillHits;
+    public int maxRefillHits = 2;
 
-    public bool meleeHit = false;
+    public bool isDisabled = true;
 
     private void Start()
     {
@@ -21,7 +23,7 @@ public class PlayerRangedAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2") && currentAmmo > 0)
+        if (Input.GetButtonDown("Fire2") && currentAmmo > 0 && isDisabled == false)
         {
             Shoot();
 
@@ -31,11 +33,11 @@ public class PlayerRangedAttack : MonoBehaviour
         {
             currentAmmo = maxAmmo;
         }
-        if(meleeHit == true)
+        if(maxRefillHits <= refillHits)
         {
-            Debug.Log("bajs");
+            currentAmmo++;
 
-            meleeHit = false;
+            refillHits = 0;
         }
     }
 

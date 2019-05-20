@@ -6,13 +6,13 @@ public class rangedAttackPickup : MonoBehaviour
 {
 
     public GameObject Player;
-    public GameObject FirePoint;
+    public PlayerRangedAttack ranged;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            Instantiate<GameObject>(FirePoint);
+            ranged.isDisabled = false;
 
             Destroy(gameObject);
         }

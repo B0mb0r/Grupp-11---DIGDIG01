@@ -15,6 +15,8 @@ public class PlayerMeleeAttackUp : MonoBehaviour
     public float rangeY;
     public LayerMask whatIsEnemies;
 
+    public PlayerRangedAttack ranged;
+
 
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class PlayerMeleeAttackUp : MonoBehaviour
                 animator.SetBool("isAttackingVertical", true);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
+<<<<<<< HEAD
                     EnemyHealthSystem ehs;
                     ehs = enemiesToDamage[i].GetComponent<EnemyHealthSystem>();
                     if (ehs)
@@ -48,6 +51,10 @@ public class PlayerMeleeAttackUp : MonoBehaviour
                         walking.TakeDamage(damage);
                     }
 
+=======
+                    enemiesToDamage[i].GetComponent<EnemyHealthSystem>().TakeDamage(damage);
+                    ranged.refillHits++;
+>>>>>>> Hugo
                     GetComponent<Health>().LifeSteal(lifeSteal);
                 }
                 Debug.Log("AttackedUp");
